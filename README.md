@@ -217,6 +217,7 @@ Usage rules:
 - Amber marks **one** thing per view as most important. If everything is amber, nothing is.
 - Status colors always come with an icon and text.
 - Text selection uses `--accent-fill` with `--on-accent`.
+- Code uses `--syntax-*` tokens (keyword, string, number, function, comment, type, variable, punct, tag): Tokyo Night in Night, Tokyo Night Day in Paper, adjusted where needed to reach 4.5:1.
 
 ### Depth
 
@@ -339,9 +340,9 @@ Initial component set:
 | **Inline alert / Banner** | Tinted surface, 3 px leading bar and icon in the tone color (info, success, warning, danger), mono title, optional actions and dismiss. The banner variant spans its container. See [Notifications](#14-notifications). |
 | **Toast** | Float surface and shadow in a fixed `role="status"` region (bottom right; full width on phones). Enters with the "settle" motion. Timing and queueing are app behavior; see [Notifications](#14-notifications). |
 | **Keycap** | `<kbd>` for shortcuts: mono, 1 px `--line-strong`, `--paper-raised`. |
-| **Code block** | Mono, `--paper-raised`, Tokyo Night syntax colors, copy button. |
-| **Table** | Sticky mono header, hairline rows, numeric columns right-aligned with tabular figures. |
-| **Empty state** | Graph-paper surface, plain explanation, one primary action. |
+| **Code block** | `<figure>` with a filename header and copy button. Tokyo Night (Night) and Tokyo Night Day (Paper) syntax colors, tuned to ≥ 4.5:1; works with `tp-syntax-*` classes, Prism or highlight.js. Long lines scroll inside a focusable `<pre>`, or wrap with `.tp-code--wrap`. |
+| **Table** | Scrolls inside a focusable, labelled wrapper. Sticky mono header, hairline rows, numbers right-aligned with tabular figures. Sortable headers use `aria-sort` and ↑/↓ arrows; rows with a checked checkbox get the selected style. |
+| **Empty state** | Graph-paper surface with a dashed border, icon, plain explanation and one primary action. Compact variant for panels and "no results". |
 
 Every component doc lists: anatomy, states (default, hover, focus, active, disabled, busy, error), keyboard behavior, accessibility notes, and do/don't examples.
 
@@ -465,7 +466,8 @@ tokyo-paper-design-system/
 │   │   ├── card/  pill/  stat/
 │   │   ├── alert/ toast/    # Alert includes the banner variant
 │   │   ├── dialog/  menu/
-│   │   └── nav/  tabs/      # Nav includes the skip link
+│   │   ├── nav/  tabs/      # Nav includes the skip link
+│   │   └── table/  code/  empty-state/
 │   ├── demo/                # Reference pages only: layout, theme switcher, behavior.js
 │   ├── index.html           # Links to every reference page
 │   └── tokyo-paper.css      # Imports everything above, in order

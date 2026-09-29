@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Empty state · Tokyo Paper</title>
+  <link rel="stylesheet" href="../../tokyo-paper.css">
+  <link rel="stylesheet" href="../../demo/demo.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M3 6h6l2 2h10v11H3z"/><path d="M12 11v5M9.5 13.5h5"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></symbol>
+    </defs>
+  </svg>
+
+  <main>
+    <p class="tp-eyebrow"><a href="../../index.html">Tokyo Paper</a> · Content</p>
+    <h1>Empty state</h1>
+    <p>Empty states explain what will appear here and offer one clear next step. The graph-paper surface marks the space as ready to fill.</p>
+
+    <div class="demo-row demo-theme" role="group" aria-label="Theme">
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="night" aria-pressed="false">Night</button>
+    </div>
+
+    <section>
+      <p class="tp-eyebrow">First use</p>
+      <div class="tp-empty">
+        <svg class="tp-empty__icon" aria-hidden="true"><use href="#i-folder"/></svg>
+        <h2 class="tp-empty__title">No projects yet</h2>
+        <p class="tp-empty__body">Projects keep your files, notes and settings together. Create one to get started.</p>
+        <div class="tp-empty__actions">
+          <button class="tp-button tp-button--primary" type="button">Create project</button>
+          <button class="tp-button tp-button--quiet" type="button">Import files</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="tp-eyebrow">No results (compact)</p>
+      <div class="tp-empty tp-empty--compact">
+        <svg class="tp-empty__icon" aria-hidden="true"><use href="#i-search"/></svg>
+        <h2 class="tp-empty__title">No results for “invoce”</h2>
+        <p class="tp-empty__body">Check the spelling, or search all folders instead of just this one.</p>
+        <div class="tp-empty__actions">
+          <button class="tp-button" type="button">Search all folders</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../demo/demo.js"></script>
+</body>
+</html>

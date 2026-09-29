@@ -44,6 +44,17 @@
   --warning: light-dark(#953800, #ff9e64);
   --danger:  light-dark(#cf222e, #f7768e);
 
+  /* Syntax: Tokyo Night (Night) and Tokyo Night Day (Paper), tuned to 4.5:1+ on --paper-raised */
+  --syntax-keyword:  light-dark(#8446e0, #bb9af7);
+  --syntax-string:   light-dark(#587539, #9ece6a);
+  --syntax-number:   light-dark(#a35400, #ff9e64);
+  --syntax-function: light-dark(#1a66cc, #7aa2f7);
+  --syntax-comment:  light-dark(#646c8c, #8089b3);
+  --syntax-type:     light-dark(#007197, #7dcfff);
+  --syntax-variable: light-dark(#3760bf, #c0caf5);
+  --syntax-punct:    light-dark(#006a83, #89ddff);
+  --syntax-tag:      light-dark(#c81e52, #f7768e);
+
   /* Depth */
   --shadow-float: 0 60px 140px -60px light-dark(#0b0d1459, #000000f2);
 }

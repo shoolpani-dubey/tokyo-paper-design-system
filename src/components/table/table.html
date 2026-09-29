@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Table · Tokyo Paper</title>
+  <link rel="stylesheet" href="../../tokyo-paper.css">
+  <link rel="stylesheet" href="../../demo/demo.css">
+</head>
+<body>
+  <main>
+    <p class="tp-eyebrow"><a href="../../index.html">Tokyo Paper</a> · Content</p>
+    <h1>Table</h1>
+    <p>Tables compare data across rows. Numbers are right-aligned with equal-width digits, headers stay visible while scrolling, and wide tables scroll inside their own frame.</p>
+
+    <div class="demo-row demo-theme" role="group" aria-label="Theme">
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="night" aria-pressed="false">Night</button>
+    </div>
+
+    <section>
+      <p class="tp-eyebrow">Sortable, with selection</p>
+      <div class="tp-table-wrap" role="region" aria-labelledby="inv-caption" tabindex="0">
+        <table class="tp-table">
+          <caption id="inv-caption">Invoices</caption>
+          <thead>
+            <tr>
+              <th scope="col" class="tp-table__select"><span class="tp-visually-hidden">Select</span></th>
+              <th scope="col" aria-sort="descending"><button class="tp-table__sort" type="button">Date</button></th>
+              <th scope="col"><button class="tp-table__sort" type="button">Customer</button></th>
+              <th scope="col">Status</th>
+              <th scope="col" class="tp-table__num"><button class="tp-table__sort" type="button">Amount</button></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tp-table__select"><input class="tp-checkbox" type="checkbox" aria-label="Select invoice for Aino Virtanen" checked></td>
+              <td class="tp-table__mono">2026-09-28</td>
+              <th scope="row">Aino Virtanen</th>
+              <td><span class="tp-pill tp-pill--success"><span class="tp-pill__dot" aria-hidden="true"></span>Paid</span></td>
+              <td class="tp-table__num">€1,240.00</td>
+            </tr>
+            <tr>
+              <td class="tp-table__select"><input class="tp-checkbox" type="checkbox" aria-label="Select invoice for Kenji Sato"></td>
+              <td class="tp-table__mono">2026-09-21</td>
+              <th scope="row">Kenji Sato</th>
+              <td><span class="tp-pill tp-pill--warning"><span class="tp-pill__dot" aria-hidden="true"></span>Due in 3 days</span></td>
+              <td class="tp-table__num">€86.50</td>
+            </tr>
+            <tr>
+              <td class="tp-table__select"><input class="tp-checkbox" type="checkbox" aria-label="Select invoice for Priya Nair"></td>
+              <td class="tp-table__mono">2026-09-12</td>
+              <th scope="row">Priya Nair</th>
+              <td><span class="tp-pill tp-pill--danger"><span class="tp-pill__dot" aria-hidden="true"></span>Overdue</span></td>
+              <td class="tp-table__num">€3,905.20</td>
+            </tr>
+            <tr>
+              <td class="tp-table__select"><input class="tp-checkbox" type="checkbox" aria-label="Select invoice for Oliver Brown"></td>
+              <td class="tp-table__mono">2026-09-03</td>
+              <th scope="row">Oliver Brown</th>
+              <td><span class="tp-pill tp-pill--success"><span class="tp-pill__dot" aria-hidden="true"></span>Paid</span></td>
+              <td class="tp-table__num">€412.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <p class="tp-eyebrow">Wide table, compact density</p>
+      <p>This table is wider than small screens: scroll it sideways, or focus it and use the arrow keys. The header stays in place when scrolling down.</p>
+      <div class="tp-table-wrap" role="region" aria-labelledby="usage-caption" tabindex="0" data-density="compact" style="max-height: 16rem">
+        <table class="tp-table">
+          <caption id="usage-caption">Usability test results by age group</caption>
+          <thead>
+            <tr>
+              <th scope="col">Age group</th>
+              <th scope="col" class="tp-table__num">Participants</th>
+              <th scope="col" class="tp-table__num">Completion</th>
+              <th scope="col" class="tp-table__num">Median time</th>
+              <th scope="col" class="tp-table__num">Errors</th>
+              <th scope="col" class="tp-table__num">Help requests</th>
+              <th scope="col" class="tp-table__num">SUS</th>
+              <th scope="col">Top issue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">8–12</th><td class="tp-table__num">5</td><td class="tp-table__num">92%</td><td class="tp-table__num">1:48</td><td class="tp-table__num">3</td><td class="tp-table__num">2</td><td class="tp-table__num">76</td><td>Unfamiliar word “archive”</td></tr>
+            <tr><th scope="row">13–30</th><td class="tp-table__num">5</td><td class="tp-table__num">100%</td><td class="tp-table__num">0:52</td><td class="tp-table__num">1</td><td class="tp-table__num">0</td><td class="tp-table__num">84</td><td>None</td></tr>
+            <tr><th scope="row">30–60</th><td class="tp-table__num">5</td><td class="tp-table__num">96%</td><td class="tp-table__num">1:05</td><td class="tp-table__num">2</td><td class="tp-table__num">1</td><td class="tp-table__num">81</td><td>Missed the Undo toast</td></tr>
+            <tr><th scope="row">60+</th><td class="tp-table__num">5</td><td class="tp-table__num">90%</td><td class="tp-table__num">1:41</td><td class="tp-table__num">4</td><td class="tp-table__num">3</td><td class="tp-table__num">72</td><td>Menu button not recognised</td></tr>
+            <tr><th scope="row">All</th><td class="tp-table__num">20</td><td class="tp-table__num">94%</td><td class="tp-table__num">1:17</td><td class="tp-table__num">10</td><td class="tp-table__num">6</td><td class="tp-table__num">78</td><td class="tp-table__muted">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../demo/demo.js"></script>
+  <script src="../../demo/behavior.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Code · Tokyo Paper</title>
+  <link rel="stylesheet" href="../../tokyo-paper.css">
+  <link rel="stylesheet" href="../../demo/demo.css">
+</head>
+<body>
+  <main>
+    <p class="tp-eyebrow"><a href="../../index.html">Tokyo Paper</a> · Content</p>
+    <h1>Code</h1>
+    <p>Code blocks use Tokyo Night syntax colors, tuned so every token reads at 4.5:1 or better. Inline code, like <code>--accent</code>, sits on a light tint.</p>
+
+    <div class="demo-row demo-theme" role="group" aria-label="Theme">
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="night" aria-pressed="false">Night</button>
+    </div>
+
+    <section>
+      <p class="tp-eyebrow">JavaScript</p>
+      <figure class="tp-code">
+        <figcaption class="tp-code__header">
+          <span class="tp-code__title">theme.js</span>
+          <button class="tp-button tp-button--quiet tp-code__copy" type="button">Copy</button>
+        </figcaption>
+<pre class="tp-code__body" tabindex="0" aria-label="theme.js"><code><span class="tp-syntax-comment">// Follow the OS unless the user picked a theme</span>
+<span class="tp-syntax-keyword">const</span> <span class="tp-syntax-variable">saved</span> <span class="tp-syntax-punct">=</span> <span class="tp-syntax-variable">localStorage</span><span class="tp-syntax-punct">.</span><span class="tp-syntax-function">getItem</span><span class="tp-syntax-punct">(</span><span class="tp-syntax-string">"theme"</span><span class="tp-syntax-punct">);</span>
+
+<span class="tp-syntax-keyword">export function</span> <span class="tp-syntax-function">setTheme</span><span class="tp-syntax-punct">(</span><span class="tp-syntax-variable">theme</span> <span class="tp-syntax-punct">=</span> <span class="tp-syntax-variable">saved</span><span class="tp-syntax-punct">) {</span>
+  <span class="tp-syntax-keyword">if</span> <span class="tp-syntax-punct">(!</span><span class="tp-syntax-variable">theme</span><span class="tp-syntax-punct">)</span> <span class="tp-syntax-keyword">return delete</span> <span class="tp-syntax-type">document</span><span class="tp-syntax-punct">.</span><span class="tp-syntax-variable">documentElement</span><span class="tp-syntax-punct">.</span><span class="tp-syntax-variable">dataset</span><span class="tp-syntax-punct">.</span><span class="tp-syntax-variable">theme</span><span class="tp-syntax-punct">;</span>
+  <span class="tp-syntax-type">document</span><span class="tp-syntax-punct">.</span><span class="tp-syntax-variable">documentElement</span><span class="tp-syntax-punct">.</span><span class="tp-syntax-variable">dataset</span><span class="tp-syntax-punct">.</span><span class="tp-syntax-variable">theme</span> <span class="tp-syntax-punct">=</span> <span class="tp-syntax-variable">theme</span><span class="tp-syntax-punct">;</span> <span class="tp-syntax-comment">// "paper" or "night"</span>
+  <span class="tp-syntax-keyword">return</span> <span class="tp-syntax-number">true</span><span class="tp-syntax-punct">;</span>
+<span class="tp-syntax-punct">}</span></code></pre>
+      </figure>
+    </section>
+
+    <section>
+      <p class="tp-eyebrow">HTML, wrapped</p>
+      <figure class="tp-code tp-code--wrap">
+        <figcaption class="tp-code__header">
+          <span class="tp-code__title">button.html</span>
+          <button class="tp-button tp-button--quiet tp-code__copy" type="button">Copy</button>
+        </figcaption>
+<pre class="tp-code__body" tabindex="0" aria-label="button.html"><code><span class="tp-syntax-punct">&lt;</span><span class="tp-syntax-tag">link</span> <span class="tp-syntax-variable">rel</span><span class="tp-syntax-punct">=</span><span class="tp-syntax-string">"stylesheet"</span> <span class="tp-syntax-variable">href</span><span class="tp-syntax-punct">=</span><span class="tp-syntax-string">"src/tokyo-paper.css"</span><span class="tp-syntax-punct">&gt;</span>
+<span class="tp-syntax-punct">&lt;</span><span class="tp-syntax-tag">button</span> <span class="tp-syntax-variable">class</span><span class="tp-syntax-punct">=</span><span class="tp-syntax-string">"tp-button tp-button--primary"</span> <span class="tp-syntax-variable">type</span><span class="tp-syntax-punct">=</span><span class="tp-syntax-string">"button"</span><span class="tp-syntax-punct">&gt;</span>Save changes<span class="tp-syntax-punct">&lt;/</span><span class="tp-syntax-tag">button</span><span class="tp-syntax-punct">&gt;</span></code></pre>
+      </figure>
+    </section>
+
+    <section>
+      <p class="tp-eyebrow">Diff</p>
+      <figure class="tp-code">
+        <figcaption class="tp-code__header">
+          <span class="tp-code__title">theme.css</span>
+        </figcaption>
+<pre class="tp-code__body" tabindex="0" aria-label="theme.css diff"><code><span class="tp-syntax-comment">@@ Ink 3 @@</span>
+<span class="tp-syntax-removed">- --ink-3: light-dark(#6b7386, #686f93);  /* 4.1:1, fails AA */</span>
+<span class="tp-syntax-added">+ --ink-3: light-dark(#626a7d, #7a82a8);  /* 5.0 / 5.4 */</span></code></pre>
+      </figure>
+    </section>
+  </main>
+
+  <script src="../../demo/demo.js"></script>
+  <script src="../../demo/behavior.js"></script>
+</body>
+</html>

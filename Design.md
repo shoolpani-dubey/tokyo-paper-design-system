@@ -63,9 +63,14 @@ Core design decisions (detailed in README.md):
 TODO:
 1. ~~Use this format and create a Readme.md where each of these points from 1-21 are detailed.~~ Done: README.md.
 2. ~~Use the VS Code Tokyo Night theme as an important source of inspiration for the design system.~~ Done: see "Inspiration: Tokyo Night" in README.md.
-3. Under src: You may create components using Plain Html5 and CSS. The idea is that any library or framework should be able to use it. In progress: tokens, theme, base, Button, form controls (text field, select, checkbox, radio, switch), card, pill, stat, alert, banner, toast, dialog, menu, tabs and navigation done. Next: table, code block, empty state.
+3. Under src: You may create components using Plain Html5 and CSS. The idea is that any library or framework should be able to use it. In progress: tokens, theme, base, Button, form controls (text field, select, checkbox, radio, switch), card, pill, stat, alert, banner, toast, dialog, menu, tabs, navigation, table, code block and empty state done: every component listed in README section 10 now exists.
 
 ## Changelog
+
+### 2026-09-29 — Table, code block and empty state
+- **Section:** 7. Visual Language › Color, 10. Components
+- **Change:** Added table (scrolling wrapper, sticky header, sorting via `aria-sort`, row selection), code block (Tokyo Night syntax colors, copy, wrap option; maps Prism and highlight.js classes) and empty state (graph-paper surface). Added `--syntax-*` color tokens: Tokyo Night in Night, Tokyo Night Day in Paper. Adjusted six values to reach 4.5:1: Night comment (`#565f89` → `#8089b3`) and Paper keyword, number, function, comment and tag. Added inline `code` styling to base.
+- **Reason:** Completes the initial component set in README section 10, keeping syntax colors faithful to Tokyo Night while meeting the contrast rules.
 
 ### 2026-09-29 — Overlays, navigation and folder structure
 - **Section:** 10. Components, 11. Navigation, 18. React + Tauri Architecture

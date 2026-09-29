@@ -90,3 +90,46 @@ document.querySelectorAll(".tp-tabs").forEach((tabs) => {
     }
   });
 });
+
+// Table: a sort button toggles aria-sort (ascending ↔ descending) on its <th>,
+// clears it from the other columns, and reorders the rows.
+document.querySelectorAll(".tp-table").forEach((table) => {
+  table.querySelectorAll(".tp-table__sort").forEach((button) => {
+    button.addEventListener("click", () => {
+      const th = button.closest("th");
+      const column = [...th.parentElement.children].indexOf(th);
+      const direction = th.getAttribute("aria-sort") === "ascending" ? "descending" : "ascending";
+      const numeric = th.classList.contains("tp-table__num");
+
+      table.querySelectorAll("thead th[aria-sort]").forEach((other) => other.removeAttribute("aria-sort"));
+      th.setAttribute("aria-sort", direction);
+
+      const value = (row) => {
+        const text = row.children[column].textContent.trim();
+        return numeric ? parseFloat(text.replace(/[^\d.-]/g, "")) : text.toLowerCase();
+      };
+      const body = table.tBodies[0];
+      const rows = [...body.rows].sort((a, b) => {
+        const [x, y] = [value(a), value(b)];
+        const order = x < y ? -1 : x > y ? 1 : 0;
+        return direction === "ascending" ? order : -order;
+      });
+      body.append(...rows);
+    });
+  });
+});
+
+// Code block: copy the code, then confirm on the button for 2 seconds.
+document.querySelectorAll(".tp-code__copy").forEach((button) => {
+  const label = button.textContent;
+  button.addEventListener("click", async () => {
+    const code = button.closest(".tp-code").querySelector(".tp-code__body").innerText;
+    try {
+      await navigator.clipboard.writeText(code);
+      button.textContent = "Copied ✓";
+    } catch {
+      button.textContent = "Copy failed";
+    }
+    setTimeout(() => (button.textContent = label), 2000);
+  });
+});

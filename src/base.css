@@ -94,6 +94,14 @@ samp {
   font-size: 0.9375em;
 }
 
+/* Inline code (code blocks are styled by components/code) */
+:not(pre) > code {
+  padding: 0.1em 0.3em;
+  border: var(--line-width) solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper-hover);
+}
+
 kbd {
   display: inline-block;
   min-width: 1.75em;
