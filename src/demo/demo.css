@@ -24,15 +24,6 @@ section {
   gap: var(--space-6);
 }
 
-.demo-eyebrow {
-  margin: 0 0 var(--space-3);
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-
 .demo-surface {
   padding: var(--space-5);
   background: var(--paper-raised);

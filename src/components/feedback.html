@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feedback · Tokyo Paper</title>
+  <link rel="stylesheet" href="../tokyo-paper.css">
+  <link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+  <!-- Icons, defined once and reused with <use> -->
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-info" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="10" cy="10" r="7.5"/><path d="M10 9v5M10 6v.5"/></symbol>
+      <symbol id="i-success" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="10" cy="10" r="7.5"/><path d="m6.5 10 2.5 2.5 4.5-5"/></symbol>
+      <symbol id="i-warning" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M10 2.5 18 17H2z"/><path d="M10 8v4M10 14.5v.5"/></symbol>
+      <symbol id="i-danger" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v5M10 13.5v.5"/></symbol>
+      <symbol id="i-close" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="m5.5 5.5 9 9M14.5 5.5l-9 9"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="tp-alert tp-alert--banner tp-alert--warning">
+    <svg class="tp-alert__icon" aria-hidden="true"><use href="#i-warning"/></svg>
+    <div class="tp-alert__content">
+      <p class="tp-alert__title">Scheduled maintenance</p>
+      <p class="tp-alert__body">Saving is paused on 3 October, 02:00–03:00 UTC. Your drafts are kept.</p>
+    </div>
+    <button class="tp-button tp-button--quiet tp-button--icon tp-alert__dismiss" type="button" aria-label="Dismiss">
+      <svg aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+  </div>
+
+  <main>
+    <p class="tp-eyebrow">Components · 13–14</p>
+    <h1>Feedback</h1>
+    <p>Match urgency to interruption. Prefer an inline alert next to the cause; use a banner for app-wide status and a toast only to confirm an action.</p>
+
+    <div class="demo-row demo-theme" role="group" aria-label="Theme">
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="night" aria-pressed="false">Night</button>
+    </div>
+
+    <section>
+      <p class="tp-eyebrow">Inline alert</p>
+      <div class="tp-form" style="max-width: 44rem">
+        <div class="tp-alert">
+          <svg class="tp-alert__icon" aria-hidden="true"><use href="#i-info"/></svg>
+          <div class="tp-alert__content">
+            <p class="tp-alert__title">New sign-in method</p>
+            <p class="tp-alert__body">You can now sign in with a passkey instead of a password.</p>
+          </div>
+        </div>
+
+        <div class="tp-alert tp-alert--success">
+          <svg class="tp-alert__icon" aria-hidden="true"><use href="#i-success"/></svg>
+          <div class="tp-alert__content">
+            <p class="tp-alert__title">Profile saved</p>
+            <p class="tp-alert__body">Your changes are live.</p>
+          </div>
+        </div>
+
+        <div class="tp-alert tp-alert--warning">
+          <svg class="tp-alert__icon" aria-hidden="true"><use href="#i-warning"/></svg>
+          <div class="tp-alert__content">
+            <p class="tp-alert__title">Storage almost full</p>
+            <p class="tp-alert__body">You have used 92% of your 5 GB. New uploads will stop at 100%.</p>
+            <div class="tp-alert__actions">
+              <button class="tp-button" type="button">Manage storage</button>
+            </div>
+          </div>
+          <button class="tp-button tp-button--quiet tp-button--icon tp-alert__dismiss" type="button" aria-label="Dismiss">
+            <svg aria-hidden="true"><use href="#i-close"/></svg>
+          </button>
+        </div>
+
+        <div class="tp-alert tp-alert--danger">
+          <svg class="tp-alert__icon" aria-hidden="true"><use href="#i-danger"/></svg>
+          <div class="tp-alert__content">
+            <p class="tp-alert__title">Couldn’t connect</p>
+            <p class="tp-alert__body">Check your internet connection, then try again. Nothing you typed has been lost.</p>
+            <div class="tp-alert__actions">
+              <button class="tp-button tp-button--primary" type="button">Try again</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="tp-eyebrow">Toast</p>
+      <p>Toasts confirm an action. They stay for at least 6 seconds, pause while you hover or focus them, and offer Undo when it applies.</p>
+      <div class="demo-row">
+        <button class="tp-button" type="button" data-toast="Message moved to Archive." data-undo>Archive message</button>
+        <button class="tp-button" type="button" data-toast="Link copied." data-tone="info">Copy link</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="tp-toast-region" role="status" aria-live="polite"></div>
+
+  <script src="../demo/demo.js"></script>
+  <script>
+    // Toast demo: one at a time, 6s, paused while hovered or focused.
+    const region = document.querySelector(".tp-toast-region");
+
+    function showToast(message, { tone = "success", undo = false } = {}) {
+      region.replaceChildren();
+      const toast = document.createElement("div");
+      toast.className = `tp-toast tp-toast--${tone}`;
+      toast.innerHTML = `
+        <svg class="tp-toast__icon" aria-hidden="true"><use href="#i-${tone}"/></svg>
+        <p class="tp-toast__message"></p>
+        ${undo ? '<button class="tp-button tp-button--quiet" type="button" data-undo>Undo</button>' : ""}
+        <button class="tp-button tp-button--quiet tp-button--icon" type="button" aria-label="Dismiss" data-dismiss>
+          <svg aria-hidden="true"><use href="#i-close"/></svg>
+        </button>`;
+      toast.querySelector(".tp-toast__message").textContent = message;
+      region.append(toast);
+
+      // Timer runs only while nothing (pointer or focus) is holding the toast open.
+      let remaining = 6000, started, timer;
+      const holds = new Set();
+      const start = () => { started = Date.now(); timer = setTimeout(() => toast.remove(), remaining); };
+      const hold = (reason) => {
+        if (holds.size === 0) { clearTimeout(timer); remaining -= Date.now() - started; }
+        holds.add(reason);
+      };
+      const release = (reason) => {
+        holds.delete(reason);
+        if (holds.size === 0) start();
+      };
+      toast.addEventListener("pointerenter", () => hold("pointer"));
+      toast.addEventListener("pointerleave", () => release("pointer"));
+      toast.addEventListener("focusin", () => hold("focus"));
+      toast.addEventListener("focusout", (e) => { if (!toast.contains(e.relatedTarget)) release("focus"); });
+      toast.querySelector("[data-dismiss]").addEventListener("click", () => toast.remove());
+      toast.querySelector("[data-undo]")?.addEventListener("click", () => showToast("Message restored.", { tone: "info" }));
+      start();
+    }
+
+    document.querySelectorAll("[data-toast]").forEach((button) =>
+      button.addEventListener("click", () =>
+        showToast(button.dataset.toast, { tone: button.dataset.tone, undo: button.hasAttribute("data-undo") })
+      )
+    );
+  </script>
+</body>
+</html>

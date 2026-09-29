@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Content · Tokyo Paper</title>
+  <link rel="stylesheet" href="../tokyo-paper.css">
+  <link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+  <main>
+    <p class="tp-eyebrow">Components · 10</p>
+    <h1>Content</h1>
+    <p>Cards group related content, pills label status, and stats show key numbers at a glance.</p>
+
+    <div class="demo-row demo-theme" role="group" aria-label="Theme">
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="night" aria-pressed="false">Night</button>
+    </div>
+
+    <section>
+      <p class="tp-eyebrow">Card</p>
+      <div class="demo-grid">
+        <article class="tp-card">
+          <p class="tp-eyebrow">Static</p>
+          <h3 class="tp-card__title">Weekly summary</h3>
+          <p class="tp-card__body">Cards hold one idea. This one has its own actions, so the card itself is not clickable.</p>
+          <div class="tp-card__footer">
+            <button class="tp-button tp-button--primary" type="button">Open report</button>
+            <button class="tp-button tp-button--quiet" type="button">Share</button>
+          </div>
+        </article>
+
+        <article class="tp-card">
+          <p class="tp-eyebrow">Guide · 5 min</p>
+          <h3 class="tp-card__title"><a class="tp-card__link" href="#">Getting started with Tokyo Paper</a></h3>
+          <p class="tp-card__body">The whole card is clickable, but only the title is the link, so screen readers hear a short, clear name.</p>
+          <div class="tp-card__footer">
+            <span class="tp-pill"><span class="tp-pill__dot" aria-hidden="true"></span>New</span>
+          </div>
+        </article>
+
+        <article class="tp-card">
+          <p class="tp-eyebrow">Guide · 8 min</p>
+          <h3 class="tp-card__title"><a class="tp-card__link" href="#">Designing forms for every age</a></h3>
+          <p class="tp-card__body">Visible labels, hints before errors, and 44px targets.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <p class="tp-eyebrow">Pill</p>
+      <div class="demo-row">
+        <span class="tp-pill">v1.0</span>
+        <span class="tp-pill"><span class="tp-pill__dot" aria-hidden="true"></span>Featured</span>
+        <span class="tp-pill tp-pill--info"><span class="tp-pill__dot" aria-hidden="true"></span>Syncing</span>
+        <span class="tp-pill tp-pill--success"><span class="tp-pill__dot" aria-hidden="true"></span>Online</span>
+        <span class="tp-pill tp-pill--warning"><span class="tp-pill__dot" aria-hidden="true"></span>Expires soon</span>
+        <span class="tp-pill tp-pill--danger"><span class="tp-pill__dot" aria-hidden="true"></span>Failed</span>
+      </div>
+    </section>
+
+    <section>
+      <p class="tp-eyebrow">Stat</p>
+      <dl class="tp-stats">
+        <div class="tp-stat tp-stat--highlight">
+          <dt class="tp-stat__key">Task completion</dt>
+          <dd class="tp-stat__value">94<span class="tp-stat__unit">%</span></dd>
+          <dd class="tp-stat__note">Across all age groups</dd>
+        </div>
+        <div class="tp-stat">
+          <dt class="tp-stat__key">Response time</dt>
+          <dd class="tp-stat__value">42<span class="tp-stat__unit">ms</span></dd>
+          <dd class="tp-stat__note">Median, last 7 days</dd>
+        </div>
+        <div class="tp-stat">
+          <dt class="tp-stat__key">SUS score</dt>
+          <dd class="tp-stat__value">78</dd>
+          <dd class="tp-stat__note">Target is 70 or more</dd>
+        </div>
+        <div class="tp-stat">
+          <dt class="tp-stat__key">Participants</dt>
+          <dd class="tp-stat__value">20</dd>
+          <dd class="tp-stat__note">5 per age group</dd>
+        </div>
+      </dl>
+    </section>
+  </main>
+
+  <script src="../demo/demo.js"></script>
+</body>
+</html>

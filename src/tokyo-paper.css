@@ -13,3 +13,8 @@
 @import url("components/field.css") layer(tokyo-paper.components);
 @import url("components/choice.css") layer(tokyo-paper.components);
 @import url("components/switch.css") layer(tokyo-paper.components);
+@import url("components/card.css") layer(tokyo-paper.components);
+@import url("components/pill.css") layer(tokyo-paper.components);
+@import url("components/stat.css") layer(tokyo-paper.components);
+@import url("components/alert.css") layer(tokyo-paper.components);
+@import url("components/toast.css") layer(tokyo-paper.components);

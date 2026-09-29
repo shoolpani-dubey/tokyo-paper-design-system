@@ -166,7 +166,7 @@ Web fonts are optional: every stack falls back to fonts already on the system, s
 Rules:
 
 - Headings use tight tracking (`-0.04em` for display, `-0.02em` for H2) because large mono type looks loose otherwise.
-- **Eyebrow labels** (small uppercase mono above a heading, e.g. `SECTION · 02`) use `--text-xs`, uppercase, `letter-spacing: 0.12em`, `--ink-3`. Never use uppercase for more than a few words.
+- **Eyebrow labels** (`.tp-eyebrow`: small uppercase mono above a heading, e.g. `SECTION · 02`) use `--text-xs`, uppercase, `letter-spacing: 0.12em`, `--ink-3`. Never use uppercase for more than a few words.
 - Line length for prose: 45–75 characters (`max-width: 68ch`).
 - An optional blinking block cursor (▌ in `--accent`) may end a hero heading. It stops blinking under reduced motion.
 
@@ -330,13 +330,14 @@ Initial component set:
 | **Select** | Native `<select>` with a theme-colored chevron; falls back to the native control in forced-colors mode. |
 | **Checkbox / Radio** | Native inputs with a 2 px border (small controls need a heavier edge). Checked = amber fill plus a check, dot or dash. The whole row is a 44 px target. Radio stays round, because the shape is familiar. |
 | **Switch** | Native checkbox with `role="switch"`, so no JavaScript is needed. Square track and thumb; state shown by position, fill and "On"/"Off" text. Use for settings that apply immediately. |
-| **Card / Panel** | `--paper-raised`, 1 px `--line`, square corners, optional eyebrow label. |
-| **Pill / Tag** | Mono `--text-xs`, 1 px border, `--radius-sm`, optional status dot. |
-| **Stat** | Uppercase eyebrow key, large tight-tracked value, optional unit in `--ink-3`. |
+| **Card / Panel** | `--paper-raised`, 1 px `--line`, square corners, optional eyebrow label. A `.tp-card__link` in the title makes the whole card clickable (strong border, 1 px lift on hover, focus ring on the card) while the title stays the accessible name. |
+| **Pill / Tag** | Mono `--text-xs`, 1 px `--line-strong` border, `--radius-sm`, optional status dot. The tone colors only the dot; the text always names the status. |
+| **Stat** | A `<dl>` of cells separated by 1 px rules. Uppercase eyebrow key, large tight-tracked value with tabular figures, optional unit in `--ink-3`. `.tp-stat--highlight` puts one value in amber. |
 | **Tabs** | Mono labels; active tab marked by accent bar and `aria-selected`. |
 | **Dialog** | Native `<dialog>`, `--paper-float`, float shadow, focus trapped, Esc closes. |
 | **Menu / Popover** | Float layer, keyboard navigable (arrows, Home/End, typeahead). |
-| **Toast / Banner / Inline alert** | See [Notifications](#14-notifications). |
+| **Inline alert / Banner** | Tinted surface, 3 px leading bar and icon in the tone color (info, success, warning, danger), mono title, optional actions and dismiss. The banner variant spans its container. See [Notifications](#14-notifications). |
+| **Toast** | Float surface and shadow in a fixed `role="status"` region (bottom right; full width on phones). Enters with the "settle" motion. Timing and queueing are app behavior; see [Notifications](#14-notifications). |
 | **Keycap** | `<kbd>` for shortcuts: mono, 1 px `--line-strong`, `--paper-raised`. |
 | **Code block** | Mono, `--paper-raised`, Tokyo Night syntax colors, copy button. |
 | **Table** | Sticky mono header, hairline rows, numeric columns right-aligned with tabular figures. |
@@ -460,7 +461,11 @@ tokyo-paper-design-system/
 │   │   ├── field.css        # Text input, textarea, select, fieldset
 │   │   ├── choice.css       # Checkbox, radio
 │   │   ├── switch.css
-│   │   └── forms.html       # Reference page for all form controls
+│   │   ├── forms.html       # Reference page for all form controls
+│   │   ├── card.css, pill.css, stat.css
+│   │   ├── content.html     # Reference page: card, pill, stat
+│   │   ├── alert.css, toast.css
+│   │   └── feedback.html    # Reference page: alert, banner, toast
 │   ├── demo/                # Layout and theme switcher for reference pages only
 │   └── tokyo-paper.css      # Imports everything above, in order
 └── Design.md / README.md

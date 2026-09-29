@@ -63,9 +63,14 @@ Core design decisions (detailed in README.md):
 TODO:
 1. ~~Use this format and create a Readme.md where each of these points from 1-21 are detailed.~~ Done: README.md.
 2. ~~Use the VS Code Tokyo Night theme as an important source of inspiration for the design system.~~ Done: see "Inspiration: Tokyo Night" in README.md.
-3. Under src: You may create components using Plain Html5 and CSS. The idea is that any library or framework should be able to use it. In progress: tokens, theme, base, Button and form controls (text field, select, checkbox, radio, switch) done.
+3. Under src: You may create components using Plain Html5 and CSS. The idea is that any library or framework should be able to use it. In progress: tokens, theme, base, Button, form controls (text field, select, checkbox, radio, switch), card, pill, stat, alert, banner and toast done. Next: dialog, menu, tabs, navigation, table, code block, empty state.
 
 ## Changelog
+
+### 2026-09-29 — Content and feedback components
+- **Section:** 7. Visual Language › Typography, 10. Components, 14. Notifications
+- **Change:** Added card (static and whole-card link), pill, stat, inline alert, banner and toast. Added the `.tp-eyebrow` label style to base. Alerts use a 7% tone tint, a 3px leading bar and a tone icon; body text stays ≥ 7:1 on every tint.
+- **Reason:** These cover content display and all non-modal feedback from section 14 without requiring JavaScript.
 
 ### 2026-09-29 — Form controls
 - **Section:** 10. Components, 12. Forms & Input
