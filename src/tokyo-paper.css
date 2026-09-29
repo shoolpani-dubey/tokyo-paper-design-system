@@ -1,0 +1,12 @@
+/*
+ * Tokyo Paper Design System — entry point.
+ * Everything sits in the tokyo-paper layer, so app styles (unlayered)
+ * override it without !important.
+ */
+
+@layer tokyo-paper.tokens, tokyo-paper.theme, tokyo-paper.base, tokyo-paper.components;
+
+@import url("tokens.css") layer(tokyo-paper.tokens);
+@import url("theme.css") layer(tokyo-paper.theme);
+@import url("base.css") layer(tokyo-paper.base);
+@import url("components/button.css") layer(tokyo-paper.components);
