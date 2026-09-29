@@ -333,9 +333,9 @@ Initial component set:
 | **Card / Panel** | `--paper-raised`, 1 px `--line`, square corners, optional eyebrow label. A `.tp-card__link` in the title makes the whole card clickable (strong border, 1 px lift on hover, focus ring on the card) while the title stays the accessible name. |
 | **Pill / Tag** | Mono `--text-xs`, 1 px `--line-strong` border, `--radius-sm`, optional status dot. The tone colors only the dot; the text always names the status. |
 | **Stat** | A `<dl>` of cells separated by 1 px rules. Uppercase eyebrow key, large tight-tracked value with tabular figures, optional unit in `--ink-3`. `.tp-stat--highlight` puts one value in amber. |
-| **Tabs** | Mono labels; active tab marked by accent bar and `aria-selected`. |
-| **Dialog** | Native `<dialog>`, `--paper-float`, float shadow, focus trapped, Esc closes. |
-| **Menu / Popover** | Float layer, keyboard navigable (arrows, Home/End, typeahead). |
+| **Tabs** | Mono labels; selected tab marked by ink color, a 2 px accent bar and `aria-selected`. Arrow keys and Home/End move and select; only the selected tab is in the Tab order. Scrolls sideways when tabs don't fit. |
+| **Dialog** | Native `<dialog>` opened with `showModal()`: the browser traps focus, closes on Esc and returns focus. `--paper-float`, float shadow, dimmed backdrop, page scroll locked. Primary action last; `autofocus` on the safest action. Bottom sheet on phones. |
+| **Menu / Popover** | Uses the `popover` attribute, so it opens and closes without JavaScript. Anchored to its trigger with CSS anchor positioning (centered where unsupported). Items are 44 px; supports icons, shortcuts, check items, groups and a danger item. Arrow keys, Home/End and typeahead move between items. |
 | **Inline alert / Banner** | Tinted surface, 3 px leading bar and icon in the tone color (info, success, warning, danger), mono title, optional actions and dismiss. The banner variant spans its container. See [Notifications](#14-notifications). |
 | **Toast** | Float surface and shadow in a fixed `role="status"` region (bottom right; full width on phones). Enters with the "settle" motion. Timing and queueing are app behavior; see [Notifications](#14-notifications). |
 | **Keycap** | `<kbd>` for shortcuts: mono, 1 px `--line-strong`, `--paper-raised`. |
@@ -456,22 +456,23 @@ tokyo-paper-design-system/
 │   ├── theme.css            # Color tokens: light-dark(Paper, Night) pairs
 │   ├── base.css             # Reset, typography, focus, selection, preferences
 │   ├── components/
-│   │   ├── button.css
-│   │   ├── button.html      # Reference markup and states
-│   │   ├── field.css        # Text input, textarea, select, fieldset
-│   │   ├── choice.css       # Checkbox, radio
-│   │   ├── switch.css
-│   │   ├── forms.html       # Reference page for all form controls
-│   │   ├── card.css, pill.css, stat.css
-│   │   ├── content.html     # Reference page: card, pill, stat
-│   │   ├── alert.css, toast.css
-│   │   └── feedback.html    # Reference page: alert, banner, toast
-│   ├── demo/                # Layout and theme switcher for reference pages only
+│   │   ├── button/
+│   │   │   ├── button.css   # Styles
+│   │   │   └── button.html  # Reference page: markup, variants, states
+│   │   ├── field/           # Text input, textarea, select, fieldset
+│   │   ├── choice/          # Checkbox, radio
+│   │   ├── switch/
+│   │   ├── card/  pill/  stat/
+│   │   ├── alert/ toast/    # Alert includes the banner variant
+│   │   ├── dialog/  menu/
+│   │   └── nav/  tabs/      # Nav includes the skip link
+│   ├── demo/                # Reference pages only: layout, theme switcher, behavior.js
+│   ├── index.html           # Links to every reference page
 │   └── tokyo-paper.css      # Imports everything above, in order
 └── Design.md / README.md
 ```
 
-**Layering (load order):** `tokens.css` → `theme.css` → `base.css` → `components/*.css`, each imported into a sub-layer of `@layer tokyo-paper`. App styles outside the layer always win, so apps override without `!important`. Component classes are prefixed `tp-` (`.tp-button`, `.tp-button--primary`).
+**Layering (load order):** `tokens.css` → `theme.css` → `base.css` → `components/<name>/<name>.css`, each imported into a sub-layer of `@layer tokyo-paper`. App styles outside the layer always win, so apps override without `!important`. Component classes are prefixed `tp-` (`.tp-button`, `.tp-button--primary`).
 
 **Using it in plain HTML:**
 
@@ -483,7 +484,7 @@ tokyo-paper-design-system/
 **Using it in React:**
 
 - Import `tokyo-paper.css` once at the app root.
-- Wrap components as thin React components that render the **same markup and classes** documented in `src/components/*.html`. No CSS-in-JS and no styling logic in React.
+- Wrap components as thin React components that render the **same markup and classes** documented in `src/components/<name>/<name>.html`, and reproduce the keyboard and focus behavior shown in `src/demo/behavior.js`. No CSS-in-JS and no styling logic in React.
 - React owns state and behavior; the design system owns appearance. State reaches CSS through attributes (`aria-expanded`, `data-state`).
 - Theme switching sets `document.documentElement.dataset.theme`.
 

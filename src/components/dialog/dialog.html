@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dialog · Tokyo Paper</title>
+  <link rel="stylesheet" href="../../tokyo-paper.css">
+  <link rel="stylesheet" href="../../demo/demo.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-close" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="m5.5 5.5 9 9M14.5 5.5l-9 9"/></symbol>
+      <symbol id="i-edit" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M12.5 4.5 15.5 7.5 7 16H4v-3z"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M7 7h9v9H7z"/><path d="M13 4H4v9"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M4 6h12M8 6V4h4v2M5.5 6l1 10h7l1-10"/></symbol>
+      <symbol id="i-more" viewBox="0 0 20 20" fill="currentColor"><circle cx="5" cy="10" r="1.5"/><circle cx="10" cy="10" r="1.5"/><circle cx="15" cy="10" r="1.5"/></symbol>
+    </defs>
+  </svg>
+
+  <main>
+    <p class="tp-eyebrow"><a href="../../index.html">Tokyo Paper</a> · Overlays</p>
+    <h1>Dialog</h1>
+    <p>Dialogs ask for a decision before you continue. They close with <kbd>Esc</kbd> and return focus to the button that opened them.</p>
+
+    <div class="demo-row demo-theme" role="group" aria-label="Theme">
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="night" aria-pressed="false">Night</button>
+    </div>
+
+    <section>
+      <p class="tp-eyebrow">Dialog</p>
+      <p>On phones, dialogs open as a bottom sheet with full-width buttons.</p>
+      <div class="demo-row">
+        <button class="tp-button" type="button" commandfor="d-rename" command="show-modal">Rename project</button>
+        <button class="tp-button" type="button" commandfor="d-delete" command="show-modal">Delete files</button>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="tp-dialog" id="d-rename" aria-labelledby="d-rename-title">
+    <header class="tp-dialog__header">
+      <h2 class="tp-dialog__title" id="d-rename-title">Rename project</h2>
+      <form method="dialog">
+        <button class="tp-button tp-button--quiet tp-button--icon tp-dialog__close" aria-label="Close">
+          <svg aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+      </form>
+    </header>
+    <div class="tp-dialog__body">
+      <div class="tp-field">
+        <label class="tp-field__label" for="d-rename-name">Project name</label>
+        <input class="tp-input" id="d-rename-name" type="text" value="Tokyo Paper" autofocus>
+      </div>
+    </div>
+    <form class="tp-dialog__footer" method="dialog">
+      <button class="tp-button" value="cancel">Cancel</button>
+      <button class="tp-button tp-button--primary" value="save">Save name</button>
+    </form>
+  </dialog>
+
+  <dialog class="tp-dialog" id="d-delete" role="alertdialog" aria-labelledby="d-delete-title" aria-describedby="d-delete-desc">
+    <header class="tp-dialog__header">
+      <h2 class="tp-dialog__title" id="d-delete-title">Delete 3 files permanently?</h2>
+    </header>
+    <div class="tp-dialog__body">
+      <p id="d-delete-desc">report.pdf, notes.md and draft.txt will be deleted. This can’t be undone.</p>
+    </div>
+    <form class="tp-dialog__footer" method="dialog">
+      <button class="tp-button" value="cancel" autofocus>Keep files</button>
+      <button class="tp-button tp-button--primary" value="delete">Delete 3 files</button>
+    </form>
+  </dialog>
+
+  <script src="../../demo/demo.js"></script>
+  <script src="../../demo/behavior.js"></script>
+</body>
+</html>

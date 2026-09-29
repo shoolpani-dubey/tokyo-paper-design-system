@@ -63,9 +63,14 @@ Core design decisions (detailed in README.md):
 TODO:
 1. ~~Use this format and create a Readme.md where each of these points from 1-21 are detailed.~~ Done: README.md.
 2. ~~Use the VS Code Tokyo Night theme as an important source of inspiration for the design system.~~ Done: see "Inspiration: Tokyo Night" in README.md.
-3. Under src: You may create components using Plain Html5 and CSS. The idea is that any library or framework should be able to use it. In progress: tokens, theme, base, Button, form controls (text field, select, checkbox, radio, switch), card, pill, stat, alert, banner and toast done. Next: dialog, menu, tabs, navigation, table, code block, empty state.
+3. Under src: You may create components using Plain Html5 and CSS. The idea is that any library or framework should be able to use it. In progress: tokens, theme, base, Button, form controls (text field, select, checkbox, radio, switch), card, pill, stat, alert, banner, toast, dialog, menu, tabs and navigation done. Next: table, code block, empty state.
 
 ## Changelog
+
+### 2026-09-29 — Overlays, navigation and folder structure
+- **Section:** 10. Components, 11. Navigation, 18. React + Tauri Architecture
+- **Change:** Added dialog (native `<dialog>`, bottom sheet on phones), menu (`popover` with CSS anchor positioning), tabs and navigation (sticky top bar, skip link, popover sheet below 900px). The system ships CSS only; `src/demo/behavior.js` is a reference for the keyboard and focus behavior apps must provide. Each component now lives in its own folder, `src/components/<name>/`, with its CSS and reference page; `src/index.html` links them all.
+- **Reason:** Use native platform features for focus and dismissal wherever possible, and keep each component self-contained and easy to find.
 
 ### 2026-09-29 — Content and feedback components
 - **Section:** 7. Visual Language › Typography, 10. Components, 14. Notifications

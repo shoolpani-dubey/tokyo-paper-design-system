@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Navigation · Tokyo Paper</title>
+  <link rel="stylesheet" href="../../tokyo-paper.css">
+  <link rel="stylesheet" href="../../demo/demo.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-search" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.5 12.5 17 17"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="tp-button tp-button--primary tp-skip-link" href="#main">Skip to content</a>
+
+  <header class="tp-nav">
+    <div class="tp-nav__inner">
+      <a class="tp-nav__brand" href="#"><span class="tp-nav__mark" aria-hidden="true"></span>Tokyo Paper</a>
+      <nav class="tp-nav__menu" id="nav-menu" popover aria-label="Main">
+        <ul class="tp-nav__list">
+          <li><a class="tp-nav__link" href="#" aria-current="page">Components</a></li>
+          <li><a class="tp-nav__link" href="#">Tokens</a></li>
+          <li><a class="tp-nav__link" href="#">Guidelines</a></li>
+          <li><a class="tp-nav__link" href="#">Changelog</a></li>
+        </ul>
+      </nav>
+      <div class="tp-nav__actions">
+        <button class="tp-button tp-button--quiet tp-button--icon" type="button" aria-label="Search" aria-keyshortcuts="/">
+          <svg aria-hidden="true"><use href="#i-search"/></svg>
+        </button>
+      </div>
+      <button class="tp-button tp-button--quiet tp-nav__toggle" type="button" popovertarget="nav-menu">Menu</button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <p class="tp-eyebrow"><a href="../../index.html">Tokyo Paper</a> · Navigation</p>
+    <h1>Navigation</h1>
+    <p>The top bar shows where you are with an accent bar under the current page. Press <kbd>Tab</kbd> on page load to reveal the skip link. Below 900px the links move into a sheet opened by the “Menu” button.</p>
+
+    <div class="demo-row demo-theme" role="group" aria-label="Theme">
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="night" aria-pressed="false">Night</button>
+    </div>
+
+  </main>
+
+  <script src="../../demo/demo.js"></script>
+</body>
+</html>

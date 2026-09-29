@@ -32,10 +32,13 @@ When a change affects the design:
 | ----------- | ----------------------------------------------------------------------- |
 | `Design.md` | Design source of truth: structure, decisions, changelog                 |
 | `README.md` | Detailed write-up of each of the 21 sections in Design.md               |
-| `src/`      | Components in plain HTML5 + CSS                                         |
+| `src/`      | The system: tokens, theme, base styles and components                   |
+| `src/components/<name>/` | One folder per component: `<name>.css` and a `<name>.html` reference page |
+| `src/demo/` | Reference-page helpers only (layout, theme switcher, behavior); not part of the system |
 
 ## Component rules (`src/`)
 
+- Each component lives in its own folder, `src/components/<name>/`, with `<name>.css` and a `<name>.html` reference page. Add its CSS to `src/tokyo-paper.css` and link its page from `src/index.html`.
 - **Plain HTML5 and CSS only.** No frameworks, build steps, or runtime dependencies. Any library or framework (React, Vue, Svelte, Tauri, plain pages) must be able to use the components as-is.
 - Drive every visual value (color, spacing, type, depth, motion) from design tokens (CSS custom properties). Do not hard-code these values.
 - Accessibility is the default, not an add-on: semantic elements, visible focus, keyboard operability, sufficient contrast, and respect for `prefers-reduced-motion` and `prefers-color-scheme`.

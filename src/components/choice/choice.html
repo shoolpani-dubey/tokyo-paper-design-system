@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkbox and radio · Tokyo Paper</title>
+  <link rel="stylesheet" href="../../tokyo-paper.css">
+  <link rel="stylesheet" href="../../demo/demo.css">
+</head>
+<body>
+  <main>
+    <p class="tp-eyebrow"><a href="../../index.html">Tokyo Paper</a> · Forms</p>
+    <h1>Checkbox and radio</h1>
+    <p>Checkboxes pick any number of options; radios pick exactly one. The whole row is the target, and checked controls show a shape as well as a color.</p>
+
+    <div class="demo-row demo-theme" role="group" aria-label="Theme">
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="night" aria-pressed="false">Night</button>
+    </div>
+
+    <section>
+      <p class="tp-eyebrow">Checkbox and radio</p>
+      <div class="demo-grid">
+        <fieldset class="tp-fieldset">
+          <legend class="tp-field__label">Notifications</legend>
+          <div class="tp-choice">
+            <input class="tp-checkbox" type="checkbox" id="n-email" checked aria-describedby="n-email-hint">
+            <label class="tp-choice__label" for="n-email">Email</label>
+            <p class="tp-choice__hint" id="n-email-hint">A daily summary, never more than one a day.</p>
+          </div>
+          <div class="tp-choice">
+            <input class="tp-checkbox" type="checkbox" id="n-sms">
+            <label class="tp-choice__label" for="n-sms">Text message</label>
+          </div>
+          <div class="tp-choice">
+            <input class="tp-checkbox" type="checkbox" id="n-all" data-indeterminate>
+            <label class="tp-choice__label" for="n-all">Some channels (indeterminate)</label>
+          </div>
+          <div class="tp-choice">
+            <input class="tp-checkbox" type="checkbox" id="n-post" disabled>
+            <label class="tp-choice__label" for="n-post">Post (unavailable in your region)</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="tp-fieldset">
+          <legend class="tp-field__label">Text size</legend>
+          <div class="tp-choice">
+            <input class="tp-radio" type="radio" name="size" id="s-default" checked>
+            <label class="tp-choice__label" for="s-default">Default</label>
+          </div>
+          <div class="tp-choice">
+            <input class="tp-radio" type="radio" name="size" id="s-large">
+            <label class="tp-choice__label" for="s-large">Large</label>
+          </div>
+          <div class="tp-choice">
+            <input class="tp-radio" type="radio" name="size" id="s-xl">
+            <label class="tp-choice__label" for="s-xl">Extra large</label>
+          </div>
+          <div class="tp-choice">
+            <input class="tp-radio" type="radio" name="size" id="s-tiny" disabled>
+            <label class="tp-choice__label" for="s-tiny">Small (disabled)</label>
+          </div>
+        </fieldset>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../demo/demo.js"></script>
+  <script>
+    // Indeterminate can only be set from script.
+    document.querySelectorAll("[data-indeterminate]").forEach((box) => (box.indeterminate = true));
+  </script>
+</body>
+</html>

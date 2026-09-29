@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Forms · Tokyo Paper</title>
-  <link rel="stylesheet" href="../tokyo-paper.css">
-  <link rel="stylesheet" href="../demo/demo.css">
+  <title>Field · Tokyo Paper</title>
+  <link rel="stylesheet" href="../../tokyo-paper.css">
+  <link rel="stylesheet" href="../../demo/demo.css">
 </head>
 <body>
   <main>
-    <p class="tp-eyebrow">Components · 12</p>
-    <h1>Forms</h1>
-    <p>Text fields, select, checkbox, radio and switch. Labels are always visible, hints come before errors, and errors say how to fix the problem.</p>
+    <p class="tp-eyebrow"><a href="../../index.html">Tokyo Paper</a> · Forms</p>
+    <h1>Field</h1>
+    <p>Text inputs, textarea and select. Labels are always visible, hints come before errors, and errors say how to fix the problem.</p>
 
     <div class="demo-row demo-theme" role="group" aria-label="Theme">
       <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
@@ -80,71 +80,6 @@
     </section>
 
     <section>
-      <p class="tp-eyebrow">Checkbox and radio</p>
-      <div class="demo-grid">
-        <fieldset class="tp-fieldset">
-          <legend class="tp-field__label">Notifications</legend>
-          <div class="tp-choice">
-            <input class="tp-checkbox" type="checkbox" id="n-email" checked aria-describedby="n-email-hint">
-            <label class="tp-choice__label" for="n-email">Email</label>
-            <p class="tp-choice__hint" id="n-email-hint">A daily summary, never more than one a day.</p>
-          </div>
-          <div class="tp-choice">
-            <input class="tp-checkbox" type="checkbox" id="n-sms">
-            <label class="tp-choice__label" for="n-sms">Text message</label>
-          </div>
-          <div class="tp-choice">
-            <input class="tp-checkbox" type="checkbox" id="n-all" data-indeterminate>
-            <label class="tp-choice__label" for="n-all">Some channels (indeterminate)</label>
-          </div>
-          <div class="tp-choice">
-            <input class="tp-checkbox" type="checkbox" id="n-post" disabled>
-            <label class="tp-choice__label" for="n-post">Post (unavailable in your region)</label>
-          </div>
-        </fieldset>
-
-        <fieldset class="tp-fieldset">
-          <legend class="tp-field__label">Text size</legend>
-          <div class="tp-choice">
-            <input class="tp-radio" type="radio" name="size" id="s-default" checked>
-            <label class="tp-choice__label" for="s-default">Default</label>
-          </div>
-          <div class="tp-choice">
-            <input class="tp-radio" type="radio" name="size" id="s-large">
-            <label class="tp-choice__label" for="s-large">Large</label>
-          </div>
-          <div class="tp-choice">
-            <input class="tp-radio" type="radio" name="size" id="s-xl">
-            <label class="tp-choice__label" for="s-xl">Extra large</label>
-          </div>
-          <div class="tp-choice">
-            <input class="tp-radio" type="radio" name="size" id="s-tiny" disabled>
-            <label class="tp-choice__label" for="s-tiny">Small (disabled)</label>
-          </div>
-        </fieldset>
-      </div>
-    </section>
-
-    <section>
-      <p class="tp-eyebrow">Switch</p>
-      <fieldset class="tp-fieldset">
-        <legend class="tp-field__label">Accessibility</legend>
-        <div class="tp-choice">
-          <input class="tp-switch" type="checkbox" role="switch" id="w-motion" checked>
-          <label class="tp-choice__label" for="w-motion">Reduce motion <span class="tp-switch__state" aria-hidden="true"></span></label>
-        </div>
-        <div class="tp-choice">
-          <input class="tp-switch" type="checkbox" role="switch" id="w-sound">
-          <label class="tp-choice__label" for="w-sound">Sound effects <span class="tp-switch__state" aria-hidden="true"></span></label>
-        </div>
-        <div class="tp-choice">
-          <input class="tp-switch" type="checkbox" role="switch" id="w-haptics" disabled>
-          <label class="tp-choice__label" for="w-haptics">Haptics (not supported on this device) <span class="tp-switch__state" aria-hidden="true"></span></label>
-        </div>
-      </fieldset>
-    </section>
-
-    <section>
       <p class="tp-eyebrow">A complete form</p>
       <form class="tp-form demo-surface" style="max-width: 36rem" novalidate>
         <div class="tp-field">
@@ -168,10 +103,6 @@
     </section>
   </main>
 
-  <script src="../demo/demo.js"></script>
-  <script>
-    // Indeterminate can only be set from script.
-    document.querySelectorAll("[data-indeterminate]").forEach((box) => (box.indeterminate = true));
-  </script>
+  <script src="../../demo/demo.js"></script>
 </body>
 </html>

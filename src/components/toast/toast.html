@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Toast · Tokyo Paper</title>
+  <link rel="stylesheet" href="../../tokyo-paper.css">
+  <link rel="stylesheet" href="../../demo/demo.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-info" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="10" cy="10" r="7.5"/><path d="M10 9v5M10 6v.5"/></symbol>
+      <symbol id="i-success" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="10" cy="10" r="7.5"/><path d="m6.5 10 2.5 2.5 4.5-5"/></symbol>
+      <symbol id="i-warning" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M10 2.5 18 17H2z"/><path d="M10 8v4M10 14.5v.5"/></symbol>
+      <symbol id="i-danger" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v5M10 13.5v.5"/></symbol>
+      <symbol id="i-close" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="m5.5 5.5 9 9M14.5 5.5l-9 9"/></symbol>
+    </defs>
+  </svg>
+
+  <main>
+    <p class="tp-eyebrow"><a href="../../index.html">Tokyo Paper</a> · Feedback</p>
+    <h1>Toast</h1>
+    <p>Toasts briefly confirm an action. Use them only when the result isn’t already visible where the action happened.</p>
+
+    <div class="demo-row demo-theme" role="group" aria-label="Theme">
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="night" aria-pressed="false">Night</button>
+    </div>
+
+    <section>
+      <p class="tp-eyebrow">Toast</p>
+      <p>Toasts confirm an action. They stay for at least 6 seconds, pause while you hover or focus them, and offer Undo when it applies.</p>
+      <div class="demo-row">
+        <button class="tp-button" type="button" data-toast="Message moved to Archive." data-undo>Archive message</button>
+        <button class="tp-button" type="button" data-toast="Link copied." data-tone="info">Copy link</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="tp-toast-region" role="status" aria-live="polite"></div>
+
+  <script src="../../demo/demo.js"></script>
+  <script>
+    // Toast demo: one at a time, 6s, paused while hovered or focused.
+    const region = document.querySelector(".tp-toast-region");
+
+    function showToast(message, { tone = "success", undo = false } = {}) {
+      region.replaceChildren();
+      const toast = document.createElement("div");
+      toast.className = `tp-toast tp-toast--${tone}`;
+      toast.innerHTML = `
+        <svg class="tp-toast__icon" aria-hidden="true"><use href="#i-${tone}"/></svg>
+        <p class="tp-toast__message"></p>
+        ${undo ? '<button class="tp-button tp-button--quiet" type="button" data-undo>Undo</button>' : ""}
+        <button class="tp-button tp-button--quiet tp-button--icon" type="button" aria-label="Dismiss" data-dismiss>
+          <svg aria-hidden="true"><use href="#i-close"/></svg>
+        </button>`;
+      toast.querySelector(".tp-toast__message").textContent = message;
+      region.append(toast);
+
+      // Timer runs only while nothing (pointer or focus) is holding the toast open.
+      let remaining = 6000, started, timer;
+      const holds = new Set();
+      const start = () => { started = Date.now(); timer = setTimeout(() => toast.remove(), remaining); };
+      const hold = (reason) => {
+        if (holds.size === 0) { clearTimeout(timer); remaining -= Date.now() - started; }
+        holds.add(reason);
+      };
+      const release = (reason) => {
+        holds.delete(reason);
+        if (holds.size === 0) start();
+      };
+      toast.addEventListener("pointerenter", () => hold("pointer"));
+      toast.addEventListener("pointerleave", () => release("pointer"));
+      toast.addEventListener("focusin", () => hold("focus"));
+      toast.addEventListener("focusout", (e) => { if (!toast.contains(e.relatedTarget)) release("focus"); });
+      toast.querySelector("[data-dismiss]").addEventListener("click", () => toast.remove());
+      toast.querySelector("[data-undo]")?.addEventListener("click", () => showToast("Message restored.", { tone: "info" }));
+      start();
+    }
+
+    document.querySelectorAll("[data-toast]").forEach((button) =>
+      button.addEventListener("click", () =>
+        showToast(button.dataset.toast, { tone: button.dataset.tone, undo: button.hasAttribute("data-undo") })
+      )
+    );
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pill · Tokyo Paper</title>
+  <link rel="stylesheet" href="../../tokyo-paper.css">
+  <link rel="stylesheet" href="../../demo/demo.css">
+</head>
+<body>
+  <main>
+    <p class="tp-eyebrow"><a href="../../index.html">Tokyo Paper</a> · Content</p>
+    <h1>Pill</h1>
+    <p>Pills label status. The tone only colors the dot; the text always says the status.</p>
+
+    <div class="demo-row demo-theme" role="group" aria-label="Theme">
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="night" aria-pressed="false">Night</button>
+    </div>
+
+    <section>
+      <p class="tp-eyebrow">Pill</p>
+      <div class="demo-row">
+        <span class="tp-pill">v1.0</span>
+        <span class="tp-pill"><span class="tp-pill__dot" aria-hidden="true"></span>Featured</span>
+        <span class="tp-pill tp-pill--info"><span class="tp-pill__dot" aria-hidden="true"></span>Syncing</span>
+        <span class="tp-pill tp-pill--success"><span class="tp-pill__dot" aria-hidden="true"></span>Online</span>
+        <span class="tp-pill tp-pill--warning"><span class="tp-pill__dot" aria-hidden="true"></span>Expires soon</span>
+        <span class="tp-pill tp-pill--danger"><span class="tp-pill__dot" aria-hidden="true"></span>Failed</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../demo/demo.js"></script>
+</body>
+</html>

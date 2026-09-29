@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu · Tokyo Paper</title>
+  <link rel="stylesheet" href="../../tokyo-paper.css">
+  <link rel="stylesheet" href="../../demo/demo.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-close" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="m5.5 5.5 9 9M14.5 5.5l-9 9"/></symbol>
+      <symbol id="i-edit" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M12.5 4.5 15.5 7.5 7 16H4v-3z"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M7 7h9v9H7z"/><path d="M13 4H4v9"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M4 6h12M8 6V4h4v2M5.5 6l1 10h7l1-10"/></symbol>
+      <symbol id="i-more" viewBox="0 0 20 20" fill="currentColor"><circle cx="5" cy="10" r="1.5"/><circle cx="10" cy="10" r="1.5"/><circle cx="15" cy="10" r="1.5"/></symbol>
+    </defs>
+  </svg>
+
+  <main>
+    <p class="tp-eyebrow"><a href="../../index.html">Tokyo Paper</a> · Overlays</p>
+    <h1>Menu</h1>
+    <p>Menus offer a short list of actions. They close with <kbd>Esc</kbd> or a click outside, and return focus to their button.</p>
+
+    <div class="demo-row demo-theme" role="group" aria-label="Theme">
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="night" aria-pressed="false">Night</button>
+    </div>
+
+    <section>
+      <p class="tp-eyebrow">Menu</p>
+      <p>Use the arrow keys to move, type a letter to jump, and <kbd>Esc</kbd> to close.</p>
+      <div class="demo-row">
+        <button class="tp-button" type="button" popovertarget="m-file" aria-haspopup="menu" aria-expanded="false" style="anchor-name: --m-file">File options</button>
+        <button class="tp-button tp-button--icon" type="button" popovertarget="m-more" aria-haspopup="menu" aria-expanded="false" aria-label="More actions" style="anchor-name: --m-more">
+          <svg aria-hidden="true"><use href="#i-more"/></svg>
+        </button>
+      </div>
+
+      <div class="tp-menu" id="m-file" popover role="menu" aria-label="File options" style="position-anchor: --m-file">
+        <button class="tp-menu__item" type="button" role="menuitem" tabindex="-1"><svg aria-hidden="true"><use href="#i-edit"/></svg>Rename <kbd>F2</kbd></button>
+        <button class="tp-menu__item" type="button" role="menuitem" tabindex="-1"><svg aria-hidden="true"><use href="#i-copy"/></svg>Duplicate <kbd>Ctrl D</kbd></button>
+        <button class="tp-menu__item" type="button" role="menuitem" tabindex="-1" aria-disabled="true">Move to… (no folders yet)</button>
+        <hr class="tp-menu__separator">
+        <p class="tp-menu__label">View</p>
+        <button class="tp-menu__item" type="button" role="menuitemcheckbox" aria-checked="true" tabindex="-1">Show hidden files</button>
+        <button class="tp-menu__item" type="button" role="menuitemcheckbox" aria-checked="false" tabindex="-1">Show file sizes</button>
+        <hr class="tp-menu__separator">
+        <button class="tp-menu__item tp-menu__item--danger" type="button" role="menuitem" tabindex="-1"><svg aria-hidden="true"><use href="#i-trash"/></svg>Delete…</button>
+      </div>
+
+      <div class="tp-menu" id="m-more" popover role="menu" aria-label="More actions" style="position-anchor: --m-more">
+        <button class="tp-menu__item" type="button" role="menuitem" tabindex="-1">Share</button>
+        <button class="tp-menu__item" type="button" role="menuitem" tabindex="-1">Download</button>
+        <button class="tp-menu__item" type="button" role="menuitem" tabindex="-1">Print</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../demo/demo.js"></script>
+  <script src="../../demo/behavior.js"></script>
+</body>
+</html>

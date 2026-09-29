@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tokyo Paper Design System</title>
+  <link rel="stylesheet" href="tokyo-paper.css">
+  <link rel="stylesheet" href="demo/demo.css">
+</head>
+<body>
+  <main>
+    <p class="tp-eyebrow">Design system</p>
+    <h1>Tokyo Paper</h1>
+    <p>A human-centric design system in plain HTML and CSS. Each page shows a component’s markup, variants and states in both themes.</p>
+
+    <div class="demo-row demo-theme" role="group" aria-label="Theme">
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="night" aria-pressed="false">Night</button>
+    </div>
+
+    <section>
+      <h2 class="tp-eyebrow">Actions and forms</h2>
+      <div class="demo-grid">
+        <article class="tp-card"><h3 class="tp-card__title"><a class="tp-card__link" href="components/button/button.html">Button</a></h3><p class="tp-card__body">Primary, ghost, quiet and icon buttons, with disabled and busy states.</p></article>
+        <article class="tp-card"><h3 class="tp-card__title"><a class="tp-card__link" href="components/field/field.html">Field</a></h3><p class="tp-card__body">Text input, textarea and select, with hints and errors.</p></article>
+        <article class="tp-card"><h3 class="tp-card__title"><a class="tp-card__link" href="components/choice/choice.html">Checkbox and radio</a></h3><p class="tp-card__body">Pick any number of options, or exactly one.</p></article>
+        <article class="tp-card"><h3 class="tp-card__title"><a class="tp-card__link" href="components/switch/switch.html">Switch</a></h3><p class="tp-card__body">Settings that apply immediately.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="tp-eyebrow">Content</h2>
+      <div class="demo-grid">
+        <article class="tp-card"><h3 class="tp-card__title"><a class="tp-card__link" href="components/card/card.html">Card</a></h3><p class="tp-card__body">Group related content; optionally clickable as a whole.</p></article>
+        <article class="tp-card"><h3 class="tp-card__title"><a class="tp-card__link" href="components/pill/pill.html">Pill</a></h3><p class="tp-card__body">Small labels for status and metadata.</p></article>
+        <article class="tp-card"><h3 class="tp-card__title"><a class="tp-card__link" href="components/stat/stat.html">Stat</a></h3><p class="tp-card__body">Key numbers at a glance.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="tp-eyebrow">Feedback and overlays</h2>
+      <div class="demo-grid">
+        <article class="tp-card"><h3 class="tp-card__title"><a class="tp-card__link" href="components/alert/alert.html">Alert</a></h3><p class="tp-card__body">Inline messages and app-wide banners.</p></article>
+        <article class="tp-card"><h3 class="tp-card__title"><a class="tp-card__link" href="components/toast/toast.html">Toast</a></h3><p class="tp-card__body">Brief confirmation of an action, with Undo.</p></article>
+        <article class="tp-card"><h3 class="tp-card__title"><a class="tp-card__link" href="components/dialog/dialog.html">Dialog</a></h3><p class="tp-card__body">Decisions that must be made before continuing.</p></article>
+        <article class="tp-card"><h3 class="tp-card__title"><a class="tp-card__link" href="components/menu/menu.html">Menu</a></h3><p class="tp-card__body">A short list of actions from a button.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="tp-eyebrow">Navigation</h2>
+      <div class="demo-grid">
+        <article class="tp-card"><h3 class="tp-card__title"><a class="tp-card__link" href="components/nav/nav.html">Navigation</a></h3><p class="tp-card__body">Top bar, skip link and mobile menu sheet.</p></article>
+        <article class="tp-card"><h3 class="tp-card__title"><a class="tp-card__link" href="components/tabs/tabs.html">Tabs</a></h3><p class="tp-card__body">Switch between views of the same content.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <script src="demo/demo.js"></script>
+</body>
+</html>

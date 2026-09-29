@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Switch · Tokyo Paper</title>
+  <link rel="stylesheet" href="../../tokyo-paper.css">
+  <link rel="stylesheet" href="../../demo/demo.css">
+</head>
+<body>
+  <main>
+    <p class="tp-eyebrow"><a href="../../index.html">Tokyo Paper</a> · Forms</p>
+    <h1>Switch</h1>
+    <p>Switches turn a setting on or off immediately. State is shown by thumb position, fill and “On”/“Off” text.</p>
+
+    <div class="demo-row demo-theme" role="group" aria-label="Theme">
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="night" aria-pressed="false">Night</button>
+    </div>
+
+    <section>
+      <p class="tp-eyebrow">Switch</p>
+      <fieldset class="tp-fieldset">
+        <legend class="tp-field__label">Accessibility</legend>
+        <div class="tp-choice">
+          <input class="tp-switch" type="checkbox" role="switch" id="w-motion" checked>
+          <label class="tp-choice__label" for="w-motion">Reduce motion <span class="tp-switch__state" aria-hidden="true"></span></label>
+        </div>
+        <div class="tp-choice">
+          <input class="tp-switch" type="checkbox" role="switch" id="w-sound">
+          <label class="tp-choice__label" for="w-sound">Sound effects <span class="tp-switch__state" aria-hidden="true"></span></label>
+        </div>
+        <div class="tp-choice">
+          <input class="tp-switch" type="checkbox" role="switch" id="w-haptics" disabled>
+          <label class="tp-choice__label" for="w-haptics">Haptics (not supported on this device) <span class="tp-switch__state" aria-hidden="true"></span></label>
+        </div>
+      </fieldset>
+    </section>
+  </main>
+
+  <script src="../../demo/demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tabs · Tokyo Paper</title>
+  <link rel="stylesheet" href="../../tokyo-paper.css">
+  <link rel="stylesheet" href="../../demo/demo.css">
+</head>
+<body>
+  <main>
+    <p class="tp-eyebrow"><a href="../../index.html">Tokyo Paper</a> · Navigation</p>
+    <h1>Tabs</h1>
+    <p>Tabs switch between views of the same content. Use the arrow keys to move between tabs.</p>
+
+    <div class="demo-row demo-theme" role="group" aria-label="Theme">
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="night" aria-pressed="false">Night</button>
+    </div>
+
+    <section>
+      <p class="tp-eyebrow">Tabs</p>
+      <div class="tp-tabs">
+        <div class="tp-tabs__list" role="tablist" aria-label="Account settings">
+          <button class="tp-tab" type="button" role="tab" id="t-general" aria-selected="true" aria-controls="p-general">General</button>
+          <button class="tp-tab" type="button" role="tab" id="t-privacy" aria-selected="false" aria-controls="p-privacy" tabindex="-1">Privacy</button>
+          <button class="tp-tab" type="button" role="tab" id="t-a11y" aria-selected="false" aria-controls="p-a11y" tabindex="-1">Accessibility</button>
+          <button class="tp-tab" type="button" role="tab" id="t-billing" aria-selected="false" aria-controls="p-billing" tabindex="-1">Billing</button>
+        </div>
+        <div class="tp-tabs__panel" role="tabpanel" id="p-general" aria-labelledby="t-general" tabindex="0">
+          <p>Your name, email address and language.</p>
+        </div>
+        <div class="tp-tabs__panel" role="tabpanel" id="p-privacy" aria-labelledby="t-privacy" tabindex="0" hidden>
+          <p>Who can see your profile, and what data we keep.</p>
+        </div>
+        <div class="tp-tabs__panel" role="tabpanel" id="p-a11y" aria-labelledby="t-a11y" tabindex="0" hidden>
+          <p>Text size, motion and contrast preferences.</p>
+        </div>
+        <div class="tp-tabs__panel" role="tabpanel" id="p-billing" aria-labelledby="t-billing" tabindex="0" hidden>
+          <p>Your plan, invoices and payment method.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../demo/demo.js"></script>
+  <script src="../../demo/behavior.js"></script>
+</body>
+</html>
