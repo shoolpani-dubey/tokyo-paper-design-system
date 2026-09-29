@@ -66,6 +66,10 @@
   line-height: var(--leading-ui);
 }
 
+.tp-alert__body > :last-child {
+  margin-bottom: 0;
+}
+
 .tp-alert__actions {
   display: flex;
   flex-wrap: wrap;

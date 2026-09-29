@@ -1,0 +1,29 @@
+{
+  "name": "tokyo-paper",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A human-centric design system in plain HTML and CSS.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/tokyo-paper.css",
+    "./css": "./src/tokyo-paper.css"
+  },
+  "files": [
+    "src/tokens.css",
+    "src/theme.css",
+    "src/base.css",
+    "src/tokyo-paper.css",
+    "src/components/**/*.css"
+  ],
+  "scripts": {
+    "check": "npm run check:contrast && npm run check:tokens && npm run test:a11y",
+    "check:contrast": "node scripts/check-contrast.mjs",
+    "check:tokens": "node scripts/check-tokens.mjs",
+    "test:a11y": "playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0"
+  }
+}

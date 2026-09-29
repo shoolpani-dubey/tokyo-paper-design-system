@@ -47,7 +47,7 @@
   font-family: var(--font-mono);
   font-feature-settings: "zero" 1;
   font-variant-numeric: tabular-nums;
-  font-size: clamp(1.75rem, 1.2rem + 2vw, 2.875rem);
+  font-size: var(--text-stat);
   font-weight: var(--weight-bold);
   line-height: 1;
   letter-spacing: var(--tracking-display);

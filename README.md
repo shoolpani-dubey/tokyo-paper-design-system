@@ -471,6 +471,9 @@ tokyo-paper-design-system/
 │   ├── demo/                # Reference pages only: layout, theme switcher, behavior.js
 │   ├── index.html           # Links to every reference page
 │   └── tokyo-paper.css      # Imports everything above, in order
+├── react/                   # @tokyo-paper/react: React 19 wrappers (see react/README.md)
+├── scripts/                 # check-contrast.mjs, check-tokens.mjs
+├── tests/                   # Playwright + axe acceptance tests
 └── Design.md / README.md
 ```
 
@@ -483,7 +486,7 @@ tokyo-paper-design-system/
 <button class="tp-button tp-button--primary" type="button">Save changes</button>
 ```
 
-**Using it in React:**
+**Using it in React:** the [`react/`](react/README.md) package (`@tokyo-paper/react`) provides these wrappers, tested with Vitest, Testing Library and axe.
 
 - Import `tokyo-paper.css` once at the app root.
 - Wrap components as thin React components that render the **same markup and classes** documented in `src/components/<name>/<name>.html`, and reproduce the keyboard and focus behavior shown in `src/demo/behavior.js`. No CSS-in-JS and no styling logic in React.
@@ -522,23 +525,23 @@ Findings that change the design are recorded in the Design.md changelog.
 
 ## 20. Measurable Acceptance Criteria
 
-A component or page is **done** only when all of these pass:
+A component or page is **done** only when all of these pass. Rows marked **auto** are checked by `npm run check` (locally and in CI); the rest need a person.
 
 | Area | Criterion | How to check |
 | --- | --- | --- |
-| Contrast | Body text ≥ 7:1; other text ≥ 4.5:1; UI boundaries and focus ≥ 3:1, in both themes | Contrast checker on every token pair |
+| Contrast | Body text ≥ 7:1; other text ≥ 4.5:1; UI boundaries and focus ≥ 3:1, in both themes | **auto** `npm run check:contrast` checks every token pair in both themes |
 | Text size | Body ≥ 16 px; no readable text < 14 px | Computed styles |
-| Zoom | Usable at 200% zoom and 400% reflow (320 px), no overlap or loss | Browser zoom |
+| Zoom | Usable at 200% zoom and 400% reflow (320 px), no overlap or loss | **auto** for 320 px reflow (`npm run test:a11y`); browser zoom by hand |
 | Text spacing | Survives WCAG 1.4.12 overrides (line height 1.5, letter spacing 0.12em, etc.) | Text-spacing bookmarklet |
-| Targets | Interactive targets ≥ 44 × 44 px (compact ≥ 32 px with padding) | DevTools measurement |
+| Targets | Interactive targets ≥ 44 × 44 px (compact ≥ 32 px with padding) | **auto** `npm run test:a11y` measures every control on every page |
 | Keyboard | Every function reachable and operable; logical order; no traps | Keyboard-only walk-through |
 | Focus | Visible 2 px focus ring on every focusable element | Tab through |
 | Screen reader | Correct names, roles, states; changes announced | VoiceOver + NVDA |
 | Motion | No non-essential motion with reduced motion on; nothing flashes > 3/s | OS setting |
 | Forced colors | Controls and focus remain visible in Windows High Contrast | Forced-colors emulation |
 | Responsiveness | Response to input < 100 ms; no layout shift (CLS < 0.1) | Performance panel |
-| Automation | Zero violations in axe-core | axe DevTools / CI |
-| Tokens | No literal colors, sizes or durations in component CSS | Lint rule |
+| Automation | Zero violations in axe-core (WCAG 2.2 AA) | **auto** `npm run test:a11y`, every page in both themes, with dialogs, menus and toasts open |
+| Tokens | No literal colors, font sizes, spacing or durations in component CSS | **auto** `npm run check:tokens` |
 | Framework-agnostic | Works as plain HTML without JavaScript for appearance | Open the `.html` reference file |
 
 ## 21. Design Checklist

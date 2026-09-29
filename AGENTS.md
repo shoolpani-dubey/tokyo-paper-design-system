@@ -35,6 +35,8 @@ When a change affects the design:
 | `src/`      | The system: tokens, theme, base styles and components                   |
 | `src/components/<name>/` | One folder per component: `<name>.css` and a `<name>.html` reference page |
 | `src/demo/` | Reference-page helpers only (layout, theme switcher, behavior); not part of the system |
+| `react/`    | `@tokyo-paper/react`: React wrappers that render the same markup as the reference pages |
+| `scripts/`, `tests/` | Automated checks (see Checks below) |
 
 ## Component rules (`src/`)
 
@@ -43,6 +45,20 @@ When a change affects the design:
 - Drive every visual value (color, spacing, type, depth, motion) from design tokens (CSS custom properties). Do not hard-code these values.
 - Accessibility is the default, not an add-on: semantic elements, visible focus, keyboard operability, sufficient contrast, and respect for `prefers-reduced-motion` and `prefers-color-scheme`.
 - Support mouse, touch, and keyboard, across desktop and mobile widths.
+
+## Checks
+
+Run `npm run check` before committing (first time: `npm install`, then `npx playwright install chromium`, or set `PLAYWRIGHT_CHANNEL=chrome` to use an installed Chrome). It runs:
+
+- `check:contrast`: every token pair in both themes meets its WCAG minimum.
+- `check:tokens`: component CSS uses tokens, not literal colors, font sizes, spacing or durations.
+- `test:a11y`: axe (WCAG 2.2 AA), 44px targets and 320px reflow on every reference page, in both themes.
+
+For the React package: `cd react && npm test && npm run typecheck`.
+
+When a component's markup changes, update its reference page, its React wrapper in `react/src/` and the wrapper's tests together.
+
+A new component page is picked up automatically. If it has an overlay, add its open state to `openStates` in `tests/a11y.spec.js`.
 
 ## Inspiration
 

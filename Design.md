@@ -67,6 +67,11 @@ TODO:
 
 ## Changelog
 
+### 2026-09-29 — Automated checks and React package
+- **Section:** 18. React + Tauri Architecture, 20. Measurable Acceptance Criteria
+- **Change:** Added `npm run check`: token contrast in both themes, a token lint for component CSS, and Playwright + axe tests (WCAG 2.2 AA, 44px targets, 320px reflow) on every reference page, also run in CI. The contrast check caught Paper `--ink-3` at 4.46:1 on the hover tint (disabled buttons); darkened `#626a7d` → `#5f6679`. The token lint led to new tokens `--text-stat` and `--dur-spin`. Added `@tokyo-paper/react` (React 19, TypeScript) with wrappers for every component. In React, the dialog's initial focus uses `data-autofocus`, because React's `autoFocus` runs before `showModal()`.
+- **Reason:** Make section 20's acceptance criteria enforceable, and give React apps the documented markup and behavior without re-implementing it.
+
 ### 2026-09-29 — Table, code block and empty state
 - **Section:** 7. Visual Language › Color, 10. Components
 - **Change:** Added table (scrolling wrapper, sticky header, sorting via `aria-sort`, row selection), code block (Tokyo Night syntax colors, copy, wrap option; maps Prism and highlight.js classes) and empty state (graph-paper surface). Added `--syntax-*` color tokens: Tokyo Night in Night, Tokyo Night Day in Paper. Adjusted six values to reach 4.5:1: Night comment (`#565f89` → `#8089b3`) and Paper keyword, number, function, comment and tag. Added inline `code` styling to base.

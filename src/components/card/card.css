@@ -45,6 +45,10 @@
   color: var(--ink-2);
 }
 
+.tp-card__body > :last-child {
+  margin-bottom: 0;
+}
+
 .tp-card__footer {
   display: flex;
   flex-wrap: wrap;
