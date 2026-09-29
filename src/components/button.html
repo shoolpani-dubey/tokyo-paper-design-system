@@ -5,60 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Button · Tokyo Paper</title>
   <link rel="stylesheet" href="../tokyo-paper.css">
-  <style>
-    /* Page layout for this reference only */
-    main {
-      max-width: var(--container-max);
-      margin: 0 auto;
-      padding: var(--space-8) var(--gutter);
-    }
-    section {
-      border-top: var(--line-width) solid var(--line);
-      padding-block: var(--space-6);
-    }
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: var(--space-2);
-    }
-    .eyebrow {
-      margin: 0 0 var(--space-3);
-      font-family: var(--font-mono);
-      font-size: var(--text-xs);
-      letter-spacing: var(--tracking-label);
-      text-transform: uppercase;
-      color: var(--ink-3);
-    }
-    .surface {
-      padding: var(--space-5);
-      background: var(--paper-raised);
-      border: var(--line-width) solid var(--line);
-    }
-    .theme-switch {
-      margin-bottom: var(--space-7);
-    }
-    .theme-switch [aria-pressed="true"] {
-      --_line: var(--accent);
-      --_fg: var(--ink);
-    }
-  </style>
+  <link rel="stylesheet" href="../demo/demo.css">
 </head>
 <body>
   <main>
-    <p class="eyebrow">Component · 10</p>
+    <p class="demo-eyebrow">Component · 10</p>
     <h1>Button</h1>
     <p>Buttons start an action. Use the verb for the label (“Save changes”, not “OK”). Use one primary button per view.</p>
 
-    <div class="row theme-switch" role="group" aria-label="Theme">
+    <div class="demo-row demo-theme" role="group" aria-label="Theme">
       <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
       <button class="tp-button tp-button--quiet" type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
       <button class="tp-button tp-button--quiet" type="button" data-set-theme="night" aria-pressed="false">Night</button>
     </div>
 
     <section>
-      <p class="eyebrow">Variants</p>
-      <div class="row">
+      <p class="demo-eyebrow">Variants</p>
+      <div class="demo-row">
         <button class="tp-button tp-button--primary" type="button">
           Save changes
           <span class="tp-button__arrow" aria-hidden="true">→</span>
@@ -75,8 +38,8 @@
     </section>
 
     <section>
-      <p class="eyebrow">On a raised surface</p>
-      <div class="surface row">
+      <p class="demo-eyebrow">On a raised surface</p>
+      <div class="demo-surface demo-row">
         <button class="tp-button tp-button--primary" type="button">Create project</button>
         <button class="tp-button" type="button">Import</button>
         <button class="tp-button tp-button--quiet" type="button">Learn more</button>
@@ -84,8 +47,8 @@
     </section>
 
     <section>
-      <p class="eyebrow">States</p>
-      <div class="row">
+      <p class="demo-eyebrow">States</p>
+      <div class="demo-row">
         <button class="tp-button tp-button--primary" type="button" disabled>Disabled</button>
         <button class="tp-button" type="button" disabled>Disabled</button>
         <button class="tp-button tp-button--primary" type="button" data-state="busy" aria-disabled="true">
@@ -97,16 +60,16 @@
     </section>
 
     <section>
-      <p class="eyebrow">As a link</p>
-      <div class="row">
+      <p class="demo-eyebrow">As a link</p>
+      <div class="demo-row">
         <a class="tp-button tp-button--primary" href="#">Get started <span class="tp-button__arrow" aria-hidden="true">→</span></a>
         <a class="tp-button" href="#">Read the docs</a>
       </div>
     </section>
 
     <section>
-      <p class="eyebrow">Compact density (desktop, fine pointer only)</p>
-      <div class="row" data-density="compact">
+      <p class="demo-eyebrow">Compact density (desktop, fine pointer only)</p>
+      <div class="demo-row" data-density="compact">
         <button class="tp-button tp-button--primary" type="button">Apply</button>
         <button class="tp-button" type="button">Discard</button>
         <button class="tp-button tp-button--quiet" type="button">Reset</button>
@@ -114,17 +77,9 @@
     </section>
   </main>
 
-  <!-- Demo only: the component itself needs no JavaScript. -->
+  <script src="../demo/demo.js"></script>
   <script>
-    document.querySelectorAll("[data-set-theme]").forEach((button) => {
-      button.addEventListener("click", () => {
-        const theme = button.dataset.setTheme;
-        if (theme) document.documentElement.dataset.theme = theme;
-        else delete document.documentElement.dataset.theme;
-        document.querySelectorAll("[data-set-theme]").forEach((b) => b.setAttribute("aria-pressed", b === button));
-      });
-    });
-
+    // Busy-state demo.
     const demo = document.querySelector('[data-demo="busy"]');
     demo.addEventListener("click", () => {
       if (demo.dataset.state === "busy") return;

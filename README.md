@@ -326,8 +326,10 @@ Initial component set:
 | --- | --- |
 | **Button** | `primary` (amber fill), `ghost` (strong line, amber wash on hover), `quiet` (text only). Height 44 px (32 px compact). Mono, weight 600. Busy and disabled states. |
 | **Link** | Underlined always; `--accent` on hover; external links labelled. |
-| **Text field / Textarea** | Visible label above, hint below, `--line-strong` border, accent border and focus ring on focus. |
-| **Select, Checkbox, Radio, Switch** | Native elements, styled; switches show on/off text or icon. |
+| **Text field / Textarea** | `.tp-field` with label, hint, control, error, in that order. `--line-strong` border; accent border and focus ring on focus. Invalid: `aria-invalid="true"` gives a danger border and leading bar, plus an error message with icon. Read-only fields use a dashed border. |
+| **Select** | Native `<select>` with a theme-colored chevron; falls back to the native control in forced-colors mode. |
+| **Checkbox / Radio** | Native inputs with a 2 px border (small controls need a heavier edge). Checked = amber fill plus a check, dot or dash. The whole row is a 44 px target. Radio stays round, because the shape is familiar. |
+| **Switch** | Native checkbox with `role="switch"`, so no JavaScript is needed. Square track and thumb; state shown by position, fill and "On"/"Off" text. Use for settings that apply immediately. |
 | **Card / Panel** | `--paper-raised`, 1 px `--line`, square corners, optional eyebrow label. |
 | **Pill / Tag** | Mono `--text-xs`, 1 px border, `--radius-sm`, optional status dot. |
 | **Stat** | Uppercase eyebrow key, large tight-tracked value, optional unit in `--ink-3`. |
@@ -455,7 +457,11 @@ tokyo-paper-design-system/
 │   ├── components/
 │   │   ├── button.css
 │   │   ├── button.html      # Reference markup and states
-│   │   └── …
+│   │   ├── field.css        # Text input, textarea, select, fieldset
+│   │   ├── choice.css       # Checkbox, radio
+│   │   ├── switch.css
+│   │   └── forms.html       # Reference page for all form controls
+│   ├── demo/                # Layout and theme switcher for reference pages only
 │   └── tokyo-paper.css      # Imports everything above, in order
 └── Design.md / README.md
 ```

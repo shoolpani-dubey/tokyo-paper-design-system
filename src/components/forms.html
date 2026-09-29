@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forms · Tokyo Paper</title>
+  <link rel="stylesheet" href="../tokyo-paper.css">
+  <link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+  <main>
+    <p class="demo-eyebrow">Components · 12</p>
+    <h1>Forms</h1>
+    <p>Text fields, select, checkbox, radio and switch. Labels are always visible, hints come before errors, and errors say how to fix the problem.</p>
+
+    <div class="demo-row demo-theme" role="group" aria-label="Theme">
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="" aria-pressed="true">Auto</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+      <button class="tp-button tp-button--quiet" type="button" data-set-theme="night" aria-pressed="false">Night</button>
+    </div>
+
+    <section>
+      <p class="demo-eyebrow">Text fields</p>
+      <div class="demo-grid">
+        <div class="tp-form">
+          <div class="tp-field">
+            <label class="tp-field__label" for="name">Full name</label>
+            <input class="tp-input" id="name" type="text" autocomplete="name">
+          </div>
+
+          <div class="tp-field">
+            <label class="tp-field__label" for="email">Email address</label>
+            <p class="tp-field__hint" id="email-hint">We only use this to send receipts.</p>
+            <input class="tp-input" id="email" type="email" autocomplete="email" aria-describedby="email-hint" placeholder="name@example.com">
+          </div>
+
+          <div class="tp-field">
+            <label class="tp-field__label" for="phone">Phone <span class="tp-field__optional">(optional)</span></label>
+            <input class="tp-input" id="phone" type="tel" autocomplete="tel" inputmode="tel">
+          </div>
+
+          <div class="tp-field">
+            <label class="tp-field__label" for="notes">Notes <span class="tp-field__optional">(optional)</span></label>
+            <textarea class="tp-input" id="notes" rows="4"></textarea>
+          </div>
+        </div>
+
+        <div class="tp-form">
+          <div class="tp-field">
+            <label class="tp-field__label" for="dob">Date of birth</label>
+            <p class="tp-field__hint" id="dob-hint">DD/MM/YYYY</p>
+            <input class="tp-input" id="dob" type="text" inputmode="numeric" autocomplete="bday" value="31/02/1958" aria-invalid="true" aria-describedby="dob-hint dob-error">
+            <p class="tp-field__error" id="dob-error">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v5M10 13.5v.5"/></svg>
+              February has no 31st. Enter a real date, for example 28/02/1958.
+            </p>
+          </div>
+
+          <div class="tp-field">
+            <label class="tp-field__label" for="country">Country</label>
+            <select class="tp-select" id="country" autocomplete="country-name">
+              <option>Finland</option>
+              <option>India</option>
+              <option>Japan</option>
+              <option>United Kingdom</option>
+            </select>
+          </div>
+
+          <div class="tp-field">
+            <label class="tp-field__label" for="account">Account ID</label>
+            <input class="tp-input" id="account" type="text" value="TP-20260929" readonly>
+          </div>
+
+          <div class="tp-field">
+            <label class="tp-field__label" for="plan">Plan</label>
+            <input class="tp-input" id="plan" type="text" value="Free" disabled>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="demo-eyebrow">Checkbox and radio</p>
+      <div class="demo-grid">
+        <fieldset class="tp-fieldset">
+          <legend class="tp-field__label">Notifications</legend>
+          <div class="tp-choice">
+            <input class="tp-checkbox" type="checkbox" id="n-email" checked aria-describedby="n-email-hint">
+            <label class="tp-choice__label" for="n-email">Email</label>
+            <p class="tp-choice__hint" id="n-email-hint">A daily summary, never more than one a day.</p>
+          </div>
+          <div class="tp-choice">
+            <input class="tp-checkbox" type="checkbox" id="n-sms">
+            <label class="tp-choice__label" for="n-sms">Text message</label>
+          </div>
+          <div class="tp-choice">
+            <input class="tp-checkbox" type="checkbox" id="n-all" data-indeterminate>
+            <label class="tp-choice__label" for="n-all">Some channels (indeterminate)</label>
+          </div>
+          <div class="tp-choice">
+            <input class="tp-checkbox" type="checkbox" id="n-post" disabled>
+            <label class="tp-choice__label" for="n-post">Post (unavailable in your region)</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="tp-fieldset">
+          <legend class="tp-field__label">Text size</legend>
+          <div class="tp-choice">
+            <input class="tp-radio" type="radio" name="size" id="s-default" checked>
+            <label class="tp-choice__label" for="s-default">Default</label>
+          </div>
+          <div class="tp-choice">
+            <input class="tp-radio" type="radio" name="size" id="s-large">
+            <label class="tp-choice__label" for="s-large">Large</label>
+          </div>
+          <div class="tp-choice">
+            <input class="tp-radio" type="radio" name="size" id="s-xl">
+            <label class="tp-choice__label" for="s-xl">Extra large</label>
+          </div>
+          <div class="tp-choice">
+            <input class="tp-radio" type="radio" name="size" id="s-tiny" disabled>
+            <label class="tp-choice__label" for="s-tiny">Small (disabled)</label>
+          </div>
+        </fieldset>
+      </div>
+    </section>
+
+    <section>
+      <p class="demo-eyebrow">Switch</p>
+      <fieldset class="tp-fieldset">
+        <legend class="tp-field__label">Accessibility</legend>
+        <div class="tp-choice">
+          <input class="tp-switch" type="checkbox" role="switch" id="w-motion" checked>
+          <label class="tp-choice__label" for="w-motion">Reduce motion <span class="tp-switch__state" aria-hidden="true"></span></label>
+        </div>
+        <div class="tp-choice">
+          <input class="tp-switch" type="checkbox" role="switch" id="w-sound">
+          <label class="tp-choice__label" for="w-sound">Sound effects <span class="tp-switch__state" aria-hidden="true"></span></label>
+        </div>
+        <div class="tp-choice">
+          <input class="tp-switch" type="checkbox" role="switch" id="w-haptics" disabled>
+          <label class="tp-choice__label" for="w-haptics">Haptics (not supported on this device) <span class="tp-switch__state" aria-hidden="true"></span></label>
+        </div>
+      </fieldset>
+    </section>
+
+    <section>
+      <p class="demo-eyebrow">A complete form</p>
+      <form class="tp-form demo-surface" style="max-width: 36rem" novalidate>
+        <div class="tp-field">
+          <label class="tp-field__label" for="f-email">Email address</label>
+          <input class="tp-input" id="f-email" type="email" autocomplete="email">
+        </div>
+        <div class="tp-field">
+          <label class="tp-field__label" for="f-password">Password</label>
+          <p class="tp-field__hint" id="f-password-hint">At least 12 characters. Spaces are fine.</p>
+          <input class="tp-input" id="f-password" type="password" autocomplete="new-password" aria-describedby="f-password-hint">
+        </div>
+        <div class="tp-choice">
+          <input class="tp-checkbox" type="checkbox" id="f-terms">
+          <label class="tp-choice__label" for="f-terms">I agree to the terms of use</label>
+        </div>
+        <div class="demo-row">
+          <button class="tp-button tp-button--primary" type="submit">Create account</button>
+          <button class="tp-button tp-button--quiet" type="button">Cancel</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="../demo/demo.js"></script>
+  <script>
+    // Indeterminate can only be set from script.
+    document.querySelectorAll("[data-indeterminate]").forEach((box) => (box.indeterminate = true));
+  </script>
+</body>
+</html>

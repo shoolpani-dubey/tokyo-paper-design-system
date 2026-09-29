@@ -63,9 +63,14 @@ Core design decisions (detailed in README.md):
 TODO:
 1. ~~Use this format and create a Readme.md where each of these points from 1-21 are detailed.~~ Done: README.md.
 2. ~~Use the VS Code Tokyo Night theme as an important source of inspiration for the design system.~~ Done: see "Inspiration: Tokyo Night" in README.md.
-3. Under src: You may create components using Plain Html5 and CSS. The idea is that any library or framework should be able to use it. In progress: tokens, theme, base and Button done.
+3. Under src: You may create components using Plain Html5 and CSS. The idea is that any library or framework should be able to use it. In progress: tokens, theme, base, Button and form controls (text field, select, checkbox, radio, switch) done.
 
 ## Changelog
+
+### 2026-09-29 — Form controls
+- **Section:** 10. Components, 12. Forms & Input
+- **Change:** Added text field, textarea, select, fieldset, checkbox, radio and switch. Checkbox, radio and switch use a 2px border (other lines stay 1px). Switch uses a square track and thumb and shows "On"/"Off" text. Invalid fields get a danger border and a 3px leading bar as well as the error message. All controls fall back to native rendering in forced-colors mode.
+- **Reason:** Forms are where the accessibility rules matter most; small controls need a heavier edge to meet 3:1 at a glance.
 
 ### 2026-09-29 — Theme mechanism and first component
 - **Section:** 9. Design Tokens, 10. Components, 18. React + Tauri Architecture

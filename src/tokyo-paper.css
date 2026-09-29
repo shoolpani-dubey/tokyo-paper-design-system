@@ -10,3 +10,6 @@
 @import url("theme.css") layer(tokyo-paper.theme);
 @import url("base.css") layer(tokyo-paper.base);
 @import url("components/button.css") layer(tokyo-paper.components);
+@import url("components/field.css") layer(tokyo-paper.components);
+@import url("components/choice.css") layer(tokyo-paper.components);
+@import url("components/switch.css") layer(tokyo-paper.components);
